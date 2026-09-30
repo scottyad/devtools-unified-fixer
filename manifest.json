@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "DevTools Full-Spectrum Assistant",
+  "version": "1.0.0",
+  "description": "Developer tool to inspect, audit, and repair forms, accessibility, and runtime errors in your web apps via DevTools (F12).",
+  "permissions": ["activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "devtools_page": "devtools.html",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}
