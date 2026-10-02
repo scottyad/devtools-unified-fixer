@@ -26,3 +26,7 @@ The Firefox source is unminified and needs no compiler. The compatibility adapte
 This project is licensed under the [MIT License](LICENSE).
 
 Copyright (c) 2026 scottyad. Third-party dependencies and assets retain their respective licenses.
+
+### Anthropic prompt caching
+
+The cloud backend marks stable diagnosis instructions and enables five-minute automatic prompt caching for hosted and Anthropic BYOK diagnoses. It logs cache read/write token counts without document contents or keys. Savings require repeated prefixes meeting the model’s minimum length; cache writes cost extra, and prompts are not padded. The setting runs on the backend and applies to Chrome and Firefox clients.
