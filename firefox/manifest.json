@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "DevTools Full-Spectrum Assistant",
+  "version": "1.0.4",
+  "description": "Developer tool to inspect, audit, and repair forms, accessibility, and runtime errors in your web apps via DevTools (F12).",
+  "host_permissions": [
+    "https://cite.archpanda.xyz/*",
+    "http://localhost:8001/*"
+  ],
+  "devtools_page": "devtools.html",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "permissions": [
+    "storage",
+    "clipboardWrite"
+  ],
+  "background": {
+    "scripts": [
+      "src/firefox-compat.js",
+      "src/background.js"
+    ]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "devtools-full-spectrum-assistant@archpanda.xyz",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": [
+          "websiteContent",
+          "browsingActivity",
+          "authenticationInfo"
+        ]
+      }
+    }
+  }
+}
