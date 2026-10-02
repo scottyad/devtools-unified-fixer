@@ -1,3 +1,4 @@
+from api_usage import TrackedClient
 """
 ArchPanda License Server — Reusable License & AI Backend
 FastAPI server for selling and validating licenses across multiple products.
@@ -75,7 +76,7 @@ anthropic_client = None
 if ANTHROPIC_API_KEY:
     try:
         from anthropic import Anthropic
-        anthropic_client = Anthropic(api_key=ANTHROPIC_API_KEY)
+        anthropic_client = TrackedClient(Anthropic(api_key=ANTHROPIC_API_KEY), "devtools")
         print("✓ Anthropic client initialized successfully with Claude AI.")
     except ImportError:
         print("Warning: anthropic package not installed. Cloud AI disabled.")
@@ -719,7 +720,7 @@ Labels, image meanings and application behavior need developer review; do not cl
         if req.custom_api_key and req.custom_api_key.startswith("sk-ant-"):
             try:
                 import anthropic
-                client_to_use = anthropic.Anthropic(api_key=req.custom_api_key.strip())
+                client_to_use = TrackedClient(anthropic.Anthropic(api_key=req.custom_api_key.strip()), "devtools", "byok")
             except Exception as e:
                 print(f"Failed to initialize custom BYOK Anthropic client: {e}")
 

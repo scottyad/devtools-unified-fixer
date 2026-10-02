@@ -30,3 +30,7 @@ Copyright (c) 2026 scottyad. Third-party dependencies and assets retain their re
 ### Anthropic prompt caching
 
 The cloud backend marks stable diagnosis instructions and enables five-minute automatic prompt caching for hosted and Anthropic BYOK diagnoses. It logs cache read/write token counts without document contents or keys. Savings require repeated prefixes meeting the model’s minimum length; cache writes cost extra, and prompts are not padded. The setting runs on the backend and applies to Chrome and Firefox clients.
+
+### Private API usage report
+
+Run `python backend/api_usage.py` on the backend host for the rolling 30-day Anthropic request and token totals. The SQLite ledger starts when this version is installed, separates hosted and BYOK credentials, and contains no prompts, document content, keys, or user identifiers. Counts represent SDK message-create invocations, including explicit model fallback attempts; internal SDK HTTP retries are not separately counted. Direct browser BYOK calls and local/Ollama requests do not pass through this backend ledger. No public reporting endpoint is exposed.
